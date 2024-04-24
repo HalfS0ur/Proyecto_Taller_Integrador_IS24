@@ -9,7 +9,7 @@ def main():
     video = cv2.VideoCapture(0)
 
     #Cargar modelo
-    modelo_coco = YOLO('license_plate_detector.pt')
+    modelo_coco = YOLO('yolov8l.pt') #Revisar rendimiento con yolov8n
 
     modelo_deteccion_placas = YOLO('license_plate_detector.pt')
 
