@@ -1,7 +1,11 @@
 import sys
 import cv2
-import ultralytics
+from ultralytics import YOLO
 
-#obtener video
+#Cargar modelo
+modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
+
+#Obtener video
 ruta_video = sys.argv[0]
 video = cv2.VideoCapture(ruta_video)
+
