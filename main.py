@@ -6,8 +6,9 @@ from ultralytics import YOLO
 modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
 
 #Obtener video
-ruta_video = sys.argv[0]
-video = cv2.VideoCapture('00.mp4')
+ruta_video = str(sys.argv[1])
+print(ruta_video)
+video = cv2.VideoCapture(ruta_video)
 
 #Procesar video
 while True: #Ciclo infinito
