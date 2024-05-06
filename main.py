@@ -2,6 +2,8 @@ import sys
 import cv2
 from ultralytics import YOLO
 
+from deteccion_texto import deteccion_de_texto
+
 #Cargar modelo
 modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
 
@@ -25,6 +27,7 @@ while True: #Ciclo infinito
             threshold_img = cv2.threshold(escala_grises, 64, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] #Aplica filtros para eliminar el ruido
 
             cv2.imshow('Placa procesada', threshold_img) #Salida de prueba
+            deteccion_de_texto(threshold_img)
 
     #cuadro_ = detecciones[0].plot()
 
