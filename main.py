@@ -29,8 +29,9 @@ while True: #Ciclo infinito
             imagen_placa = cuadro[int(y1):int(y2), int(x1):int(x2), :] #Recorta la placa del cuadro completo
             escala_grises = cv2.cvtColor(imagen_placa, cv2.COLOR_BGR2GRAY) #Convierte la imagen de la placa a escala de grises
             threshold_img = cv2.threshold(escala_grises, 64, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] #Aplica filtros para eliminar el ruido
+            
+            cv2.imshow('Placa', threshold_img) #Salida de prueba
 
-            #cv2.imshow('Placa procesada', threshold_img) #Salida de prueba
             numero_placa = deteccion_de_texto(threshold_img)
 
             if numero_placa is not None:
@@ -40,12 +41,13 @@ while True: #Ciclo infinito
             else:
                 if numero_placa_prev is not None:
                     cuadro_numero_placa = cv2.putText(cuadro, numero_placa_prev, (int(x1), int(y1)), cv2.FONT_HERSHEY_SIMPLEX, 6, (128, 17, 0), 7, cv2.LINE_AA)
+            
             print(numero_placa) #Salida de prueba
            
     #cuadro_ = detecciones[0].plot()
 
     cv2.imshow('Video', cuadro_numero_placa)
-    if (cv2.waitKey(20) == ord('q')):
+    if (cv2.waitKey(50) == ord('q')):
         break
 
 cv2.destroyAllWindows()
