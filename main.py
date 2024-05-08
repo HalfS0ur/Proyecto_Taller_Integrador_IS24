@@ -53,7 +53,7 @@ while True: #Ciclo infinito
 
     cuadro_ajustado = cv2.resize(cuadro_numero_placa, (1080, 720))
     cv2.imshow('Video', cuadro_ajustado)
-    if (cv2.waitKey(50) == ord('q')):
+    if (cv2.waitKey(25) == ord('q')):
         break
 
 cv2.destroyAllWindows()
