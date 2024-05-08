@@ -5,7 +5,7 @@ from ultralytics import YOLO
 from deteccion_texto import deteccion_de_texto
 
 #Cargar modelo
-modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
+modelo_deteccion_placas = YOLO('modelo/modelo_placas_no_final.pt')
 
 #Obtener video
 ruta_video = ('videos/'+sys.argv[1]+'.mp4')
