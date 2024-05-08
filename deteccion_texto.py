@@ -66,7 +66,7 @@ def deteccion_de_texto(imagen_placa):
     info_deteccion = reader.readtext(imagen_placa)
 
     if info_deteccion:
-        if info_deteccion[0][2] >= 0.9: #Bejó de 0.9
+        if info_deteccion[0][2] >= 0.85: #Bejó de 0.9
             numero_placa = info_deteccion[0][1]
             print(numero_placa)
 
