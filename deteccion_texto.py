@@ -66,8 +66,9 @@ def deteccion_de_texto(imagen_placa):
     info_deteccion = reader.readtext(imagen_placa)
 
     if info_deteccion:
-        if info_deteccion[0][2] >= 0.9:
+        if info_deteccion[0][2] >= 0.87: #Bejó de 0.9
             numero_placa = info_deteccion[0][1]
+            print(numero_placa)
 
             if ('-') in numero_placa and (len(numero_placa)) == 7 and formato_placa_alfanumerica(numero_placa):
                 return numero_placa
