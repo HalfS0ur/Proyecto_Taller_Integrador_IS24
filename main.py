@@ -8,7 +8,7 @@ from deteccion_texto import deteccion_de_texto
 modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
 
 #Obtener video
-ruta_video = (sys.argv[1]+'.mp4')
+ruta_video = ('videos/'+sys.argv[1]+'.mp4')
 video = cv2.VideoCapture(ruta_video)
 
 #Inicializar variable para guardar el número de placa previo

@@ -52,7 +52,14 @@ def formato_placas_especiales(numero_placa):
     return 0
 
 def formato_placas_numericas(numero_placa):
-    return 0
+    if len(numero_placa) > 6:
+        return False
+    
+    for caracter in numero_placa:
+        if (caracter in lista_numeros or caracter in diccionario_num_car.keys()):
+            return True
+        else:
+            return False
 
 def deteccion_de_texto(imagen_placa):
     numero_placa = None
@@ -62,13 +69,13 @@ def deteccion_de_texto(imagen_placa):
         if info_deteccion[0][2] >= 0.9:
             numero_placa = info_deteccion[0][1]
 
-            if ('-') in numero_placa and (len(numero_placa)) == 7:
-                formato_placa_alfanumerica(numero_placa)
+            if ('-') in numero_placa and (len(numero_placa)) == 7 and formato_placa_alfanumerica(numero_placa):
+                return numero_placa
 
             elif ('-') in numero_placa and (len(numero_placa)) != 7:
                 formato_placas_especiales(numero_placa)
 
-            return numero_placa
-
+            elif formato_placas_numericas(numero_placa):
+                return numero_placa
     else:
-        return numero_placa
+        return None
