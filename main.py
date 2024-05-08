@@ -8,7 +8,7 @@ from deteccion_texto import deteccion_de_texto
 modelo_deteccion_placas = YOLO('modelo_placas_no_final.pt')
 
 #Obtener video
-ruta_video = sys.argv[1]
+ruta_video = (sys.argv[1]+'.mp4')
 video = cv2.VideoCapture(ruta_video)
 
 #Inicializar variable para guardar el número de placa previo
@@ -28,7 +28,7 @@ while True: #Ciclo infinito
         if confianza != -1:
             imagen_placa = cuadro[int(y1):int(y2), int(x1):int(x2), :] #Recorta la placa del cuadro completo
             escala_grises = cv2.cvtColor(imagen_placa, cv2.COLOR_BGR2GRAY) #Convierte la imagen de la placa a escala de grises
-            threshold_img = cv2.threshold(escala_grises, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] #Aplica filtros para eliminar el ruido
+            threshold_img = cv2.threshold(escala_grises, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1] #Aplica filtros para eliminar el ruido
             
             cv2.imshow('Placa', threshold_img) #Salida de prueba
 
