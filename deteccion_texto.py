@@ -6,16 +6,11 @@ reader = easyocr.Reader(['es'], gpu=True) #Configura el lector de imagenes (conf
 lista_numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 
 diccionario_num_car = {
-    '0' : 'O',
-    '1' : 'I',
     '2' : 'Z',
     '3' : 'J',
-    '4' : 'A',
     '5' : 'S',
     '6' : 'G',
-    '7' : '',
     '8' : 'B',
-    '9' : ''
 }
 
 diccionario_car_num = {
@@ -26,12 +21,14 @@ diccionario_car_num = {
     'A' : '4',
     'S' : '5',
     'G' : '6',
-    '' : '7',
     'B' : '8',
-    '' : '9'
 }
 
-def formato_placa_alfanumerica(numero_placa):
+diccionario_simbolos = {
+    '-' : '-'
+}
+
+def verificar_formato_placa_alfanumerica(numero_placa):
     if (len(numero_placa) != 7):
         return False
     
@@ -47,11 +44,11 @@ def formato_placa_alfanumerica(numero_placa):
     else:
         return False 
     
-def formato_placas_especiales(numero_placa):
+def verificar_formato_placas_especiales(numero_placa):
     #TODO
     return 0
 
-def formato_placas_numericas(numero_placa):
+def verificar_formato_placas_numericas(numero_placa):
     if len(numero_placa) > 6:
         return False
     
@@ -60,6 +57,19 @@ def formato_placas_numericas(numero_placa):
             return True
         else:
             return False
+        
+def dar_formato_alfanumerico(numero_placa):
+    placa_ = ''
+    mapeo = {0:diccionario_num_car, 1:diccionario_num_car, 2:diccionario_num_car, 3:diccionario_simbolos, 4:diccionario_car_num, 5:diccionario_car_num, 6:diccionario_car_num}
+    for t in [0, 1, 2, 3, 4, 5, 6]:
+        if numero_placa[t] in mapeo[t].keys():
+            placa_ += mapeo[t][numero_placa[t]]
+        else:
+            placa_ += numero_placa[t]
+
+    return placa_
+
+
 
 def deteccion_de_texto(imagen_placa):
     numero_placa = None
@@ -70,13 +80,13 @@ def deteccion_de_texto(imagen_placa):
             numero_placa = info_deteccion[0][1]
             print(numero_placa)
 
-            if ('-') in numero_placa and (len(numero_placa)) == 7 and formato_placa_alfanumerica(numero_placa):
-                return numero_placa
+            if ('-') in numero_placa and (len(numero_placa)) == 7 and verificar_formato_placa_alfanumerica(numero_placa):
+                return dar_formato_alfanumerico(numero_placa)
 
             elif ('-') in numero_placa and (len(numero_placa)) != 7:
-                formato_placas_especiales(numero_placa)
+                verificar_formato_placas_especiales(numero_placa)
 
-            elif formato_placas_numericas(numero_placa):
+            elif verificar_formato_placas_numericas(numero_placa):
                 return numero_placa
     else:
         return None
