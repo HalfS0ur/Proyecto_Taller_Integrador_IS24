@@ -14,7 +14,7 @@ video = cv2.VideoCapture(ruta_video)
 # Inicializar variables
 numero_placa_anterior = None
 info_anterior = None
-posiciones_info = [100, 160, 220, 280]
+posiciones_info = [100, 160, 220, 280, 340]
 
 # Procesar video
 while True:
