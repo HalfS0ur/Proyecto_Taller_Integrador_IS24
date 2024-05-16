@@ -44,12 +44,13 @@ while True:
                         cuadro = cv2.putText(cuadro, valor, (0, posicion), cv2.FONT_HERSHEY_DUPLEX, 2, (128, 17, 0), 5, cv2.LINE_AA)
 
             else:
-                if numero_placa_anterior is not None and info_anterior is not None:
+                if numero_placa_anterior is not None:
                     cuadro = cv2.putText(cuadro, numero_placa_anterior, (int(x1), int(y1)), cv2.FONT_HERSHEY_DUPLEX, 6, (128, 17, 0), 7, cv2.LINE_AA)
 
-                    for i, valor in enumerate(info_anterior):
-                        posicion = posiciones_info[i]
-                        cuadro = cv2.putText(cuadro, valor, (0, posicion), cv2.FONT_HERSHEY_DUPLEX, 2, (128, 17, 0), 5, cv2.LINE_AA)
+                    if info_anterior is not None:
+                        for i, valor in enumerate(info_anterior):
+                            posicion = posiciones_info[i]
+                            cuadro = cv2.putText(cuadro, valor, (0, posicion), cv2.FONT_HERSHEY_DUPLEX, 2, (128, 17, 0), 5, cv2.LINE_AA)
 
     cv2.imshow('Video', cv2.resize(cuadro, (1080, 720)))
     if cv2.waitKey(20) == ord('q'):
