@@ -9,7 +9,7 @@ def placa_registrada(numero_placa):
                 dato2 = columna['DATO2']
                 dato3 = columna['DATO3']
                 extra = columna['EXTRA']
-
                 return(dato1, dato2, dato3, extra)
-
-    print ("Not bomboclat")
+            
+            else:
+                return None
