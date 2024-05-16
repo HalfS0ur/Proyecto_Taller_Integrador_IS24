@@ -11,5 +11,5 @@ def placa_registrada(numero_placa):
                 extra = columna['EXTRA']
                 return(dato1, dato2, dato3, extra)
             
-            else:
-                return None
+
+    return None
