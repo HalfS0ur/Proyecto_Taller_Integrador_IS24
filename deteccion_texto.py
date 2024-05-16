@@ -70,7 +70,7 @@ def dar_formato_alfanumerico(numero_placa):
     return placa_
 
 def dar_formato_numerico(numero_placa):
-    # Check if every character in numero_placa is a digit between 0 and 9
+    # Revisar que todos los caracteres sean digitos del 0 al 9 revisar esto lmao
     if not all(char.isdigit() and 0 <= int(char) <= 9 for char in numero_placa):
         return None
 
