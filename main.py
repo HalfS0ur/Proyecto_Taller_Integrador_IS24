@@ -2,7 +2,7 @@ import sys
 import cv2
 from ultralytics import YOLO
 from deteccion_texto import deteccion_de_texto
-from base_datos import placa_registrada, registro_existe
+from base_datos import placa_registrada, registrar_placas
 
 # Cargar modelo
 modelo_deteccion_placas = YOLO('modelo/modelo_placas_no_final.pt')
@@ -18,7 +18,6 @@ posiciones_info = [100, 160, 220, 280, 340]
 
 # Procesar video
 while True:
-    registro_existe()
     _, cuadro = video.read()  # Leer cuadro del video
     detecciones = modelo_deteccion_placas(cuadro, conf=0.61)  # Detectar placas con una confianza mayor a 0.61%
 
@@ -32,6 +31,7 @@ while True:
             imagen_umbral = cv2.threshold(imagen_gris, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]  # Aplicar filtros para eliminar el ruido
 
             numero_placa = deteccion_de_texto(imagen_umbral)
+            registrar_placas(numero_placa, 0)
 
             if numero_placa is not None:
                 cuadro = cv2.putText(cuadro, numero_placa, (int(x1), int(y1)), cv2.FONT_HERSHEY_DUPLEX, 6, (128, 17, 0), 7, cv2.LINE_AA)
