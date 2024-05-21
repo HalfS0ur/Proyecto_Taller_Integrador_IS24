@@ -2,7 +2,7 @@ import sys
 import cv2
 from ultralytics import YOLO
 from deteccion_texto import deteccion_de_texto
-from base_datos import placa_registrada
+from base_datos import placa_registrada, registro_existe
 
 # Cargar modelo
 modelo_deteccion_placas = YOLO('modelo/modelo_placas_no_final.pt')
@@ -18,6 +18,7 @@ posiciones_info = [100, 160, 220, 280, 340]
 
 # Procesar video
 while True:
+    registro_existe()
     _, cuadro = video.read()  # Leer cuadro del video
     detecciones = modelo_deteccion_placas(cuadro, conf=0.61)  # Detectar placas con una confianza mayor a 0.61%
 
