@@ -31,7 +31,7 @@ while True:
             imagen_umbral = cv2.threshold(imagen_gris, 128, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]  # Aplicar filtros para eliminar el ruido
 
             numero_placa = deteccion_de_texto(imagen_umbral)
-            registrar_placas(numero_placa, 0)
+            registrar_placas(numero_placa, "Entrada principal")
 
             if numero_placa is not None:
                 cuadro = cv2.putText(cuadro, numero_placa, (int(x1), int(y1)), cv2.FONT_HERSHEY_DUPLEX, 6, (128, 17, 0), 7, cv2.LINE_AA)
