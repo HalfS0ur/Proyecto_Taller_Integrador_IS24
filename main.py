@@ -21,7 +21,10 @@ while True:
     _, cuadro = video.read()  # Leer cuadro del video
     detecciones = modelo_deteccion_placas(cuadro, conf=0.61)  # Detectar placas con una confianza mayor a 0.61%
 
+    no_detections = True  # Inicializar la bandera para el estado de detecciones
+
     for deteccion in detecciones[0].boxes:
+        no_detections = False  # Hay detecciones en este cuadro
         x1, y1, x2, y2 = deteccion.xyxy.squeeze().tolist()  # Coordenadas del cuadro detectado
         confianza = float(deteccion.conf)  # Valor de confianza de la placa detectada
 
@@ -52,6 +55,11 @@ while True:
                         for i, valor in enumerate(info_anterior):
                             posicion = posiciones_info[i]
                             cuadro = cv2.putText(cuadro, valor, (0, posicion), cv2.FONT_HERSHEY_DUPLEX, 2, (128, 17, 0), 5, cv2.LINE_AA)
+
+    # Reset numero_placa_anterior if no detections were made
+    if no_detections:
+        numero_placa_anterior = None
+        info_anterior = None
 
     cv2.imshow('Video', cv2.resize(cuadro, (1080, 720)))
     if cv2.waitKey(20) == ord('q'):
