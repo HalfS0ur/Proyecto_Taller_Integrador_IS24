@@ -5,7 +5,7 @@ from deteccion_texto import deteccion_de_texto
 from base_datos import placa_registrada, registrar_placas
 
 # Cargar modelo
-modelo_deteccion_placas = YOLO('modelo/modelo_placas_no_final.pt')
+modelo_deteccion_placas = YOLO('modelo/modelo_placas.pt')
 
 # Cargar video
 ruta_video = ('videos/' + sys.argv[1] + '.mp4')
