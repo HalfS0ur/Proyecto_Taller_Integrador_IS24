@@ -56,13 +56,12 @@ while True:
                             posicion = posiciones_info[i]
                             cuadro = cv2.putText(cuadro, valor, (0, posicion), cv2.FONT_HERSHEY_DUPLEX, 2, (128, 17, 0), 5, cv2.LINE_AA)
 
-    # Reset numero_placa_anterior if no detections were made
     if no_detections:
         numero_placa_anterior = None
         info_anterior = None
 
     cv2.imshow('Video', cv2.resize(cuadro, (1080, 720)))
-    if cv2.waitKey(20) == ord('q'):
+    if cv2.waitKey(10) == ord('q'):
         break
 
 cv2.destroyAllWindows()
