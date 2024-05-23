@@ -7,8 +7,8 @@ from base_datos import placa_registrada, registrar_placas
 # Cargar modelo
 modelo_deteccion_placas = YOLO('modelo/modelo_placas.pt')
 
-# Cargar video
-video = cv2.VideoCapture(ruta_video)
+# Cargar video desde la cámara
+video = cv2.VideoCapture('protocolo://username:password@direccion_ip')
 
 # Inicializar variables
 numero_placa_anterior = None
