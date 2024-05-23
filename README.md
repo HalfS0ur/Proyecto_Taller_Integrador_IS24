@@ -4,7 +4,8 @@
 
 ## Pasos para la ejecución del programa
 #### 1. Instalar python versión 3.12.3
-Para la descarga e instalación de Python puede referirse al siguiente enlace https://www.python.org/downloads/release/python-3113/
+Para la descarga e instalación de Python puede referirse al siguiente *[enlace] (https://www.python.org/downloads/release/python-3113/)*
+
 ***Es posible que el programa funcione con versiones más recientes de Python***
 
 
