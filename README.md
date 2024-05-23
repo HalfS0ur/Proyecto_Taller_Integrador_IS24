@@ -27,6 +27,8 @@ Para poder accesar al video proveniente desde la cámara con el programa es nece
 
 Esta línea se da como ejemplo y no tiene la capacidad de accesar al stream de video de la cámara. Para lograr esto se deben modificar los parámetros "protocolo://username:password@direccion_ip" de la siguiente manera:
 - En protocolo se debe ingresar el protocolo utilizado por la cámara, usualmente ***RTSP*** o ***HTTP***.
+- En username se debe ingresar el nombre de usuario necesario para acceder al stream de video, nótese los caracteres "://" que dividen el espacio del protocolo y el username.
+- En password se debe ingresar la contraseña para acceder a la cámara, nuevamente nótese el caracter ":" presente entre username y password.
 
 downgroudear cuda
 instalar torch a la fuerza
