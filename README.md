@@ -30,10 +30,17 @@ Esta línea se da como ejemplo y no tiene la capacidad de accesar al stream de v
 - En username se debe ingresar el nombre de usuario necesario para acceder al stream de video, nótese los caracteres "://" que dividen el espacio del protocolo y el username.
 - En password se debe ingresar la contraseña para acceder a la cámara, nuevamente nótese el caracter ":" presente entre username y password.
 - Finalmente, en dirección_ip se debe ingresar la dirección ip correspondiente a la cámara que se desea utilizar con el programa. Nótese el caracter "@" que separa la dirección_ip y password.
-- 
+  
 De esta manera si se tuviera una cámara que utiliza el protocolo RTSP, con un username usuario, password contraseña y dirección ip 1.2.3.4/5 se debería modificar la línea 11 de la siguiente manera:
 
 ***video = cv2.VideoCapture('RTSP://usuario:contraseña@1.2.3.4/5')***
+
+***Importante:*** Dependiendo de la configuración de red utilizada, es posible que la computadora utilizada para correr el programa necesite permisos especiales del administrador de la red para poder accesar a los streams de video de las cámaras conectadas a la red.
+
+### 5. Ejecutar el programa
+Una vez seguidos los pasos anteriores se puede ejecutar el programa ya sea abriendo el archivo "main.py" en el editor de python y presionando la tecla F5 o bien, utilizando un terminal (como cmd o Windows Powershell) se puede ingresar al directorio en el cual se encuentran los archivos clonados del repositorio y se debe ejecutar el comando ***python main.py*** para ejecutar el programa.
+
+***Importante:*** Durante la primera ejecución se requiere una conexión a internet para que la librería EasyOCR pueda descargar los modelos de detección de caracteres, lo cual puede tardar algunos minutos.
 
 downgroudear cuda
 instalar torch a la fuerza
