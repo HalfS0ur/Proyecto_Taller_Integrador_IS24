@@ -10,3 +10,13 @@ Para la descarga e instalación de Python puede referirse al siguiente *[enlace]
 
 ### 2. Clonar la rama main de este repositorio
 Se puede clonar el repositorio utilizando el método de referencia. Es recomendable colocar los archivos del repositorio clonado en una ruta que sea de "Fácil acceso" mediante la consola.
+
+### 3. Instalar las dependencias del código
+Por simplicidad las librerías necesarias junto con sus versiones están incluidas en el archivo llamado "requirements.txt".
+
+Para su instalación, utilizando un terminal (como cmd o Windows Powershell) se debe ingresar al directorio en el cual se encuentran los archivos clonados del repositorio. Una vez en dicho directorio se debe ejecutar el comando:
+
+***pip install -r requirements.txt***
+
+Esto instalará las librerías necesarias, proceso que puede tardar algunos minutos.
+
