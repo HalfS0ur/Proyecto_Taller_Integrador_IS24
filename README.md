@@ -21,7 +21,7 @@ Para su instalación, utilizando un terminal (como cmd o Windows Powershell) se 
 Esto instalará las librerías necesarias, proceso que puede tardar algunos minutos.
 
 ### 4. Modificar el código para obtener acceso a la transmisión de video de la cámara
-Para poder accesar al video proveniente desde la cámara con el programa es necesario realizar una modificación en el archivo "main.py".
+Para poder accesar al video proveniente desde la cámara con el programa es necesario realizar una modificación en el archivo "main.py". Para esto se debe abir el archivo "main.py" utilizando del IDE de python o algún otro editor de texto de su preferencia y se debe buscar la línea 11 de código la cual contiene la siguiente instrucción:
 
 downgroudear cuda
 instalar torch a la fuerza
