@@ -78,3 +78,5 @@ PyTorch no longer supports this GPU because it is too old."
 La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real.
 
 Referencia: https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with
+
+Meter el error de pip install
