@@ -23,6 +23,11 @@ Esto instalará las librerías necesarias, proceso que puede tardar algunos minu
 ### 4. Modificar el código para obtener acceso a la transmisión de video de la cámara
 Para poder accesar al video proveniente desde la cámara con el programa es necesario realizar una modificación en el archivo "main.py". Para esto se debe abir el archivo "main.py" utilizando del IDE de python o algún otro editor de texto de su preferencia y se debe buscar la línea 11 de código la cual contiene la siguiente instrucción:
 
+***video = cv2.VideoCapture('protocolo://username:password@direccion_ip')***
+
+Esta línea se da como ejemplo y no tiene la capacidad de accesar al stream de video de la cámara. Para lograr esto se deben modificar los parámetros "protocolo://username:password@direccion_ip" de la siguiente manera:
+- En protocolo se debe ingresar el protocolo utilizado por la cámara, usualmente ***RTSP*** o ***HTTP***.
+
 downgroudear cuda
 instalar torch a la fuerza
 
