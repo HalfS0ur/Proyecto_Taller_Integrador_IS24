@@ -47,6 +47,7 @@ Una vez seguidos los pasos anteriores se puede ejecutar el programa ya sea abrie
 Este mensaje de error viene acompañado de un bajo rendimiento del programa al momento de analizar y procesar el video y se debe a que la versión de CUDA instalada no es compatible con Pytorch, una librería necesaria para el funcionamiento de la librería YOLO.
 
 Para solucionar este problema primero se deben desinstalar las versiones viejas de Pytorch corriendo el siguiente comando en una consola:
+
 ***pip uninstall torch***
 
 Seguidamente se debe instalar la versión 12.1 de CUDA mediante el siguiente [enlace](https://developer.nvidia.com/cuda-12-1-0-download-archive). (Descargue el archivo correspondiente y siga las instrucciones del instalador).
@@ -70,8 +71,10 @@ Si no se recibe el mensaje "True", existe la posibilidad de que la GPU utilizada
 - torch.zeros(1).cuda()
 
 Si se recibe el siguiente mensaje:
-'''
-Found GPU0 XXXXX which is of cuda capability #.#.
-PyTorch no longer supports this GPU because it is too old.
-'''
+
+"Found GPU0 XXXXX which is of cuda capability #.#.
+PyTorch no longer supports this GPU because it is too old."
+
 La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real.
+
+Referencia: https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with
