@@ -61,9 +61,17 @@ Una vez se ejecutó el comando anterior, reinicie nuevamente y, en una consola e
 - python
 - import torch
 - torch.cuda.is_available()
+  
 Al ejecutar el comando "torch.cuda.is_available()" en la consola debería verse el mensaje "True". Si este es el caso puede ejecutar el programa de detección de placas normalmente.
 
+Si no se recibe el mensaje "True", existe la posibilidad de que la GPU utilizada no tenga soporte para CUDA. Para verificar esto en una consola ejecute los siguientes comandos (sin el guión inicial) ***uno a uno***:
+- python
+- import torch
+- torch.zeros(1).cuda()
 
-downgroudear cuda
-instalar torch a la fuerza
-
+Si se recibe el siguiente mensaje:
+'''
+Found GPU0 XXXXX which is of cuda capability #.#.
+PyTorch no longer supports this GPU because it is too old.
+'''
+La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real.
