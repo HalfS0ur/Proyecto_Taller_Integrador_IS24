@@ -20,3 +20,6 @@ Para su instalación, utilizando un terminal (como cmd o Windows Powershell) se 
 
 Esto instalará las librerías necesarias, proceso que puede tardar algunos minutos.
 
+downgroudear cuda
+instalar torch a la fuerza
+
