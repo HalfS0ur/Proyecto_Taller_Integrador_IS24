@@ -33,13 +33,18 @@ def placa_ya_registrada(ruta, numero_placa):
     if registro_existe():
         with open(ruta, 'r', newline='') as registro_acceso:
             reader = csv.reader(registro_acceso)
+            latest_registration_time = None
             for row in reader:
                 if row[1] == numero_placa:
                     registro_time = datetime.strptime(row[0], '%H:%M:%S')
-                    if datetime.now() - registro_time > timedelta(minutes=1):
-                        return True
-                    else:
-                        return False
+                    if latest_registration_time is None or registro_time > latest_registration_time:
+                        latest_registration_time = registro_time
+
+            if latest_registration_time:
+                tiempo_actual = datetime.strptime(datetime.now().strftime('%H:%M:%S'), '%H:%M:%S')
+                print(tiempo_actual - latest_registration_time)
+                if tiempo_actual - latest_registration_time < timedelta(minutes=1):
+                    return True
     return False
 
 def registrar_placas(numero_placa, confianza):
