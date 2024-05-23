@@ -42,6 +42,28 @@ Una vez seguidos los pasos anteriores se puede ejecutar el programa ya sea abrie
 
 ***Importante:*** Durante la primera ejecución se requiere una conexión a internet para que la librería EasyOCR pueda descargar los modelos de detección de caracteres, lo cual puede tardar algunos minutos.
 
+## Posibles problemas durante la ejecución del programa
+### Mensaje de error: Cuda isn't available. Using CPU. Note: This module is much faster with a GPU.
+Este mensaje de error viene acompañado de un bajo rendimiento del programa al momento de analizar y procesar el video y se debe a que la versión de CUDA instalada no es compatible con Pytorch, una librería necesaria para el funcionamiento de la librería YOLO.
+
+Para solucionar este problema primero se deben desinstalar las versiones viejas de Pytorch corriendo el siguiente comando en una consola:
+***pip uninstall torch***
+
+Seguidamente se debe instalar la versión 12.1 de CUDA mediante el siguiente [enlace](https://developer.nvidia.com/cuda-12-1-0-download-archive). (Descargue el archivo correspondiente y siga las instrucciones del instalador).
+
+Después de instalar la versión 12.1 de CUDA reinicie el sistema y luego de reiniciar corra el siguiente comando en una consola:
+
+***pip install torch==2.2.1 torchvision==0.17.1 torchaudio==2.2.1 --index-url https://download.pytorch.org/whl/cu121***
+
+Este comando descargará e instalará varios archivos de tamaño considerable por lo que puede tomar algunos minutos en completarse (Se requiere una conexión a internet para ejecutar el comando de manera exitosa).
+
+Una vez se ejecutó el comando anterior, reinicie nuevamente y, en una consola ejecute los siguientes comandos (sin el guión inicial) ***uno a uno***:
+- python
+- import torch
+- torch.cuda.is_available()
+Al ejecutar el comando "torch.cuda.is_available()" en la consola debería verse el mensaje "True". Si este es el caso puede ejecutar el programa de detección de placas normalmente.
+
+
 downgroudear cuda
 instalar torch a la fuerza
 
