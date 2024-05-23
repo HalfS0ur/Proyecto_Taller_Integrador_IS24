@@ -29,6 +29,11 @@ Esta línea se da como ejemplo y no tiene la capacidad de accesar al stream de v
 - En protocolo se debe ingresar el protocolo utilizado por la cámara, usualmente ***RTSP*** o ***HTTP***.
 - En username se debe ingresar el nombre de usuario necesario para acceder al stream de video, nótese los caracteres "://" que dividen el espacio del protocolo y el username.
 - En password se debe ingresar la contraseña para acceder a la cámara, nuevamente nótese el caracter ":" presente entre username y password.
+- Finalmente, en dirección_ip se debe ingresar la dirección ip correspondiente a la cámara que se desea utilizar con el programa. Nótese el caracter "@" que separa la dirección_ip y password.
+- 
+De esta manera si se tuviera una cámara que utiliza el protocolo RTSP, con un username usuario, password contraseña y dirección ip 1.2.3.4/5 se debería modificar la línea 11 de la siguiente manera:
+
+***video = cv2.VideoCapture('RTSP://usuario:contraseña@1.2.3.4/5')***
 
 downgroudear cuda
 instalar torch a la fuerza
