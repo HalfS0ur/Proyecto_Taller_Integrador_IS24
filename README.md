@@ -9,7 +9,7 @@ Para la descarga e instalación de Python puede referirse al siguiente *[enlace]
 ***Es posible que el programa funcione con versiones más recientes de Python sin embargo se recomienda utilizar la versión 3.11.3***
 
 ### 2. Clonar la rama main de este repositorio
-Se puede clonar el repositorio utilizando el método de referencia. Es recomendable colocar los archivos del repositorio clonado en una ruta que sea de "Fácil acceso" mediante la consola.
+Se puede clonar el repositorio utilizando el método de referencia. Es recomendable colocar los archivos del repositorio clonado en una ruta que sea de "fácil acceso" mediante la terminal.
 
 ### 3. Instalar las dependencias del código
 Por simplicidad las librerías necesarias junto con sus versiones están incluidas en el archivo llamado "requirements.txt".
@@ -25,13 +25,13 @@ Para poder accesar al video proveniente desde la cámara con el programa es nece
 
 ***video = cv2.VideoCapture('protocolo://username:password@direccion_ip')***
 
-Esta línea se da como ejemplo y no tiene la capacidad de accesar al stream de video de la cámara. Para lograr esto se deben modificar los parámetros "protocolo://username:password@direccion_ip" de la siguiente manera:
+Esta línea se da como ejemplo y debe ser modificada para lograr accesar el stream de video de la cámara. Para ello se deben modificar los parámetros "protocolo://username:password@direccion_ip" de la siguiente manera:
 - En protocolo se debe ingresar el protocolo utilizado por la cámara, usualmente ***RTSP*** o ***HTTP***.
 - En username se debe ingresar el nombre de usuario necesario para acceder al stream de video, nótese los caracteres "://" que dividen el espacio del protocolo y el username.
 - En password se debe ingresar la contraseña para acceder a la cámara, nuevamente nótese el caracter ":" presente entre username y password.
 - Finalmente, en dirección_ip se debe ingresar la dirección ip correspondiente a la cámara que se desea utilizar con el programa. Nótese el caracter "@" que separa la dirección_ip y password.
   
-De esta manera si se tuviera una cámara que utiliza el protocolo RTSP, con un username usuario, password contraseña y dirección ip 1.2.3.4/5 se debería modificar la línea 11 de la siguiente manera:
+De esta manera si se tuviera una cámara que utiliza el protocolo RTSP, con un username "usuario", password "contraseña" y dirección ip 1.2.3.4/5 se debería modificar la línea 11 de la siguiente manera:
 
 ***video = cv2.VideoCapture('RTSP://usuario:contraseña@1.2.3.4/5')***
 
@@ -46,6 +46,13 @@ Una vez seguidos los pasos anteriores se puede ejecutar el programa ya sea abrie
 ### Mensaje de error: Cuda isn't available. Using CPU. Note: This module is much faster with a GPU.
 Este mensaje de error viene acompañado de un bajo rendimiento del programa al momento de analizar y procesar el video y se debe a que la versión de CUDA instalada no es compatible con Pytorch, una librería necesaria para el funcionamiento de la librería YOLO.
 
+Es posible verificar la incompatibilidad con la versión de CUDA ejecutando los siguientes comandos en una consola ***uno a uno***:
+- python
+- import torch
+- torch.cuda.is_available()
+
+Si la consola retorna el mensaje "False" existe una incompatibilidad entre CUDA y Pytorch.
+
 Para solucionar este problema primero se deben desinstalar las versiones viejas de Pytorch corriendo el siguiente comando en una consola:
 
 ***pip uninstall torch***
@@ -58,7 +65,7 @@ Después de instalar la versión 12.1 de CUDA reinicie el sistema y luego de rei
 
 Este comando descargará e instalará varios archivos de tamaño considerable por lo que puede tomar algunos minutos en completarse (Se requiere una conexión a internet para ejecutar el comando de manera exitosa).
 
-Una vez se ejecutó el comando anterior, reinicie nuevamente y, en una consola ejecute los siguientes comandos (sin el guión inicial) ***uno a uno***:
+Una vez se ejecutó el comando anterior, reinicie nuevamente y, en una consola ejecute los siguientes comandos ***uno a uno***:
 - python
 - import torch
 - torch.cuda.is_available()
@@ -75,8 +82,8 @@ Si se recibe el siguiente mensaje:
 "Found GPU0 XXXXX which is of cuda capability #.#.
 PyTorch no longer supports this GPU because it is too old."
 
-La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real.
+La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real. Es posible verificar las versiones de CUDA disponibles para cada generación de tarjetas gráficas en el siguiente [enlace](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
 
-Referencia: https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with
+[Referencia:](https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with)
 
 Meter el error de pip install
