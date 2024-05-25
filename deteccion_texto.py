@@ -43,10 +43,6 @@ def verificar_formato_placa_alfanumerica(numero_placa):
 
     else:
         return False 
-    
-def verificar_formato_placas_especiales(numero_placa):
-    #TODO
-    return 0
 
 def verificar_formato_placas_numericas(numero_placa):
     if len(numero_placa) > 6:
@@ -70,10 +66,6 @@ def dar_formato_alfanumerico(numero_placa):
     return placa_
 
 def dar_formato_numerico(numero_placa):
-    # Revisar que todos los caracteres sean digitos del 0 al 9 revisar esto lmao
-    if not all(char.isdigit() and 0 <= int(char) <= 9 for char in numero_placa):
-        return None
-
     placa_ = ''
     mapeo = {0: diccionario_car_num, 1: diccionario_car_num, 2: diccionario_car_num, 3: diccionario_car_num,
              4: diccionario_car_num, 5: diccionario_car_num, 6: diccionario_car_num}
@@ -84,7 +76,11 @@ def dar_formato_numerico(numero_placa):
         else:
             placa_ += numero_placa[c]
 
-    return placa_
+    if not all(char.isdigit() and 0 <= int(char) <= 9 for char in placa_):
+        return None
+
+    else:
+        return placa_
 
 
 def deteccion_de_texto(imagen_placa):
@@ -98,9 +94,6 @@ def deteccion_de_texto(imagen_placa):
 
             if ('-') in numero_placa and (len(numero_placa)) == 7 and verificar_formato_placa_alfanumerica(numero_placa):
                 return dar_formato_alfanumerico(numero_placa)
-
-            elif ('-') in numero_placa and (len(numero_placa)) != 7:
-                verificar_formato_placas_especiales(numero_placa)
 
             elif verificar_formato_placas_numericas(numero_placa):
                 return dar_formato_numerico(numero_placa)
