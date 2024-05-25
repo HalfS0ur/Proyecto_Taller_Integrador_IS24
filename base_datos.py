@@ -33,21 +33,21 @@ def placa_ya_registrada(ruta, numero_placa):
     if registro_existe():
         with open(ruta, 'r', newline='') as registro_acceso:
             reader = csv.reader(registro_acceso)
-            latest_registration_time = None
+            ultimo_registro = None
             for row in reader:
                 if row[1] == numero_placa:
                     registro_time = datetime.strptime(row[0], '%H:%M:%S')
-                    if latest_registration_time is None or registro_time > latest_registration_time:
-                        latest_registration_time = registro_time
+                    if ultimo_registro is None or registro_time > ultimo_registro:
+                        ultimo_registro = registro_time
 
-            if latest_registration_time:
+            if ultimo_registro:
                 tiempo_actual = datetime.strptime(datetime.now().strftime('%H:%M:%S'), '%H:%M:%S')
-                print(tiempo_actual - latest_registration_time)
-                if tiempo_actual - latest_registration_time < timedelta(minutes=1):
+                print(tiempo_actual - ultimo_registro)
+                if tiempo_actual - ultimo_registro < timedelta(minutes=1):
                     return True
     return False
 
-def registrar_placas(numero_placa, confianza):
+def registrar_placas(numero_placa, ingreso):
     fecha = datetime.today().strftime('%Y-%m-%d')
     ruta = os.path.join('datos/registro_acceso', f"{fecha}.csv")
 
@@ -63,7 +63,7 @@ def registrar_placas(numero_placa, confianza):
 
             with open(ruta, mode, newline='') as registro_acceso:
                 writer = csv.writer(registro_acceso)
-                writer.writerow([datetime.now().strftime('%H:%M:%S'), numero_placa, confianza])
+                writer.writerow([datetime.now().strftime('%H:%M:%S'), numero_placa, ingreso])
             print('Datos registrados con éxito.')
     else:
         print('El número de placa es inválido.')
