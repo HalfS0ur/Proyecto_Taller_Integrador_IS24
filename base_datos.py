@@ -24,7 +24,7 @@ def registro_existe():
     if not os.path.exists(ruta):
         with open(ruta, 'w', newline='') as archivo:
             writer = csv.writer(archivo)
-            writer.writerow(['Hora', 'Número de placa', 'Confianza'])
+            writer.writerow(['Hora', 'Número de placa', 'Ingreso'])
         return False
     else:
         return True
