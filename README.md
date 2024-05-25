@@ -1,6 +1,6 @@
 # Proyecto_Taller_Integrador_IS24
 
-***Importante: Para la ejecución en tiempo real de la detección de placas es necesario correr el programa en una computadora que cuente con una tarjeta gráfica de Nvidia compatible con CUDA versión 12.1, preferiblemente con memoria VRAM mayor o igual a 8 GB. De no contar con este hardware el rendimiento del programa no será suficiente para realizar la detección en tiempo real.***
+***Importante: Para la ejecución en tiempo real de la detección de placas es necesario correr el programa en una computadora que cuente con una tarjeta gráfica de Nvidia compatible con CUDA versión 12.1, preferiblemente con memoria VRAM mayor o igual a 8 GB y utilizando arquitectura Turing o más reciente (Puede consultar más información sobre CUDA en este [enlace](https://en.wikipedia.org/wiki/CUDA#GPUs_supported) y sobre modelos con arquitectura Turing en este [enlace](https://en.wikipedia.org/wiki/Turing_(microarchitecture))). De no contar con este hardware el rendimiento del programa no será suficiente para realizar la detección en tiempo real.***
 
 ## Pasos para la ejecución del programa
 ### 1. Instalar python versión 3.11.3
