@@ -10,9 +10,9 @@ def placa_registrada(numero_placa):
                 dato1 = columna['DATO1']
                 dato2 = columna['DATO2']
                 dato3 = columna['DATO3']
-                color = columna['COLOR']
-                extra = columna['EXTRA']
-                return(dato1, dato2, dato3, color, extra)
+                dato4 = columna['DATO4']
+                dato5 = columna['DATO5']
+                return(dato1, dato2, dato3, dato4, dato5)
             
     return None
 
