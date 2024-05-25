@@ -43,7 +43,7 @@ Una vez seguidos los pasos anteriores se puede ejecutar el programa ya sea abrie
 ***Importante:*** Durante la primera ejecución se requiere una conexión a internet para que la librería EasyOCR pueda descargar los modelos de detección de caracteres, lo cual puede tardar algunos minutos.
 
 ## Posibles problemas durante la ejecución del programa
-### Mensaje de error: Cuda isn't available. Using CPU. Note: This module is much faster with a GPU.
+### Mensaje de error "Cuda isn't available. Using CPU. Note: This module is much faster with a GPU." al ejecutar el programa.
 Este mensaje de error viene acompañado de un bajo rendimiento del programa al momento de analizar y procesar el video y se debe a que la versión de CUDA instalada no es compatible con Pytorch, una librería necesaria para el funcionamiento de la librería YOLO.
 
 Es posible verificar la incompatibilidad con la versión de CUDA ejecutando los siguientes comandos en una consola ***uno a uno***:
@@ -84,6 +84,7 @@ PyTorch no longer supports this GPU because it is too old."
 
 La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para correr la detección de placas en tiempo real. Es posible verificar las versiones de CUDA disponibles para cada generación de tarjetas gráficas en el siguiente [enlace](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
 
-[Referencia:](https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with)
+[Referencia](https://stackoverflow.com/questions/60987997/why-torch-cuda-is-available-returns-false-even-after-installing-pytorch-with)
 
-Meter el error de pip install
+### Mensaje de error "pip: command not found" al intentar instalar las dependencias del archivo requirements.txt
+Este error usualmente se debe a que la herramienta pip para instalar los paquetes de python no se encuentra en el PATH de Windows. Para arreglar el error refierase al siguiente [enlace](https://builtin.com/software-engineering-perspectives/pip-command-not-found).
