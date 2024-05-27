@@ -88,3 +88,6 @@ La tarjeta gráfica utilizada ya no tiene soporte y no puede ser utilizada para 
 
 ### Mensaje de error "pip: command not found" al intentar instalar las dependencias del archivo requirements.txt
 Este error usualmente se debe a que la herramienta pip para instalar los paquetes de python no se encuentra en el PATH de Windows. Para arreglar el error refierase al siguiente [enlace](https://builtin.com/software-engineering-perspectives/pip-command-not-found).
+
+## Referencias
+El modelo utilizado en este proyecto fue entrenado con YOLOv8 utilizando este [dataset](https://universe.roboflow.com/roboflow-universe-projects/license-plate-recognition-rxg4e/dataset/4) proveído por Roboflow bajo la licencia CC BY 4.0 Deed.
